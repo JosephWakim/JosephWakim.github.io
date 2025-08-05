@@ -1,0 +1,22 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon files
+Icon?
+._*
+
+# macOS metadata
+.Spotlight-V100
+.Trashes
+
+# macOS volume settings
+.VolumeIcon.icns
+
+# Files that may appear on external drives
+.fseventsd
+.com.apple.timemachine.donotpresent
+.TemporaryItems
+.apdisk
+
