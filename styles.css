@@ -44,3 +44,63 @@ a {
 a:hover {
   color: #fce96a;
 }
+
+ul.no-bullets {
+  list-style-type: none; /* remove default bullets */
+  padding: 0;
+  font-size: 16px;
+}
+
+ul.no-bullets li {
+  margin-bottom: 16px;   
+  padding-left: 30px;     /* space for emoji */
+  position: relative;      /* reference point for pseudo-element */
+}
+
+li.paper::before {
+  content: "📚";         /* book emoji */
+  position: absolute;
+  left: 0;
+}
+
+li.talk::before {
+  content: "🎤";         /* microphone emoji */
+  position: absolute;
+  left: 0;
+}
+
+li.award::before {
+  content: "🏆";         /* trophy emoji */
+  position: absolute;
+  left: 0;
+}
+
+li.conference::before {
+  content: "✈️";         /* airplane emoji */
+  position: absolute;
+  left: 0;
+}
+
+li.graduation::before {
+  content: "🎓";         /* graduation cap emoji */
+  position: absolute;
+  left: 0;
+}
+
+li.job::before {
+  content: "💼";         /* briefcase emoji */
+  position: absolute;
+  left: 0;
+}
+
+li.teaching::before {
+  content: "👨‍🏫";         /* teacher emoji */
+  position: absolute;
+  left: 0;
+}
+
+li.hiring::before {
+  content: "🤝";         /* handshake emoji */
+  position: absolute;
+  left: 0;
+}
