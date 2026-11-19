@@ -332,6 +332,10 @@ body:has(dialog.lightbox[open]) {
     justify-content: center;
   }
 
+  .desktop-only {
+    display: none;               /* projects page: match News spacing on phones */
+  }
+
   .project {
     margin-bottom: 36px;
     padding-bottom: 36px;
