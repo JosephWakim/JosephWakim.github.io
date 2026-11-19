@@ -29,9 +29,14 @@ a i, a img {
   color: #000000;               /* also consider #1d3557 or #457b9d */
   transition: color 0.3s, transform 0.3s;
 }
-a:hover i {
-  color: #fce96a; /* sunny yellow on hover */
-  transform: scale(1.1);
+/* Hover effects only on devices with a real pointer (mouse/trackpad).
+   On touch screens, :hover "sticks" to the last tapped link (e.g. after
+   tapping CV and going back), leaving it highlighted yellow. */
+@media (hover: hover) {
+  a:hover i {
+    color: #fce96a; /* sunny yellow on hover */
+    transform: scale(1.1);
+  }
 }
 
 a {
@@ -41,8 +46,10 @@ a {
   transition: color 0.3s;
 }
 
-a:hover {
-  color: #fce96a;
+@media (hover: hover) {
+  a:hover {
+    color: #fce96a;
+  }
 }
 
 ul.no-bullets {
@@ -131,12 +138,19 @@ a.nav-button {
   transition: box-shadow 0.3s, border-color 0.3s;
 }
 
-a.nav-button:hover,
 a.nav-button:focus-visible {
   color: #000000;
   border-color: #fce96a;
   box-shadow: 0 0 12px 4px #fce96a;   /* yellow glow */
   outline: none;
+}
+
+@media (hover: hover) {
+  a.nav-button:hover {
+    color: #000000;
+    border-color: #fce96a;
+    box-shadow: 0 0 12px 4px #fce96a;   /* yellow glow */
+  }
 }
 
 /* ---------- Social icons (below page content) ---------- */
@@ -201,11 +215,17 @@ a.nav-button:focus-visible {
   transition: box-shadow 0.3s, transform 0.3s;
 }
 
-.project-visual img:hover,
 .project-visual img:focus-visible {
   box-shadow: 0 0 12px 4px #fce96a;   /* yellow glow, matches the buttons */
   transform: translateY(-2px);
   outline: none;
+}
+
+@media (hover: hover) {
+  .project-visual img:hover {
+    box-shadow: 0 0 12px 4px #fce96a;
+    transform: translateY(-2px);
+  }
 }
 
 dialog.lightbox {
@@ -288,4 +308,32 @@ body:has(dialog.lightbox[open]) {
 @media (prefers-reduced-motion: reduce) {
   dialog.lightbox[open] { animation: none; }
   .project-visual img { transition: none; }
+}
+
+/* ---------- Phones / narrow screens (laptop layout unaffected) ---------- */
+@media (max-width: 600px) {
+  main {
+    margin: 0;
+    padding: 12px;
+  }
+
+  .frame {
+    margin: 12px auto;
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    overflow-wrap: break-word;
+  }
+
+  .nav-buttons-centered,
+  .nav-buttons {
+    justify-content: center;
+  }
+
+  .project {
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+  }
 }
